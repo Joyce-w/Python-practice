@@ -23,3 +23,17 @@ def sum_range(nums, start=0, end=None):
         >>> sum_range(nums, 1, 99)
         9
     """
+    sum = 0
+
+    if end is None or end > len(nums):
+        end = len(nums)
+        for i in range(start, end):
+            sum += nums[i]
+        return sum
+
+
+    end = end + 1
+    for i in range(start, end):
+        sum += nums[i]
+    return sum
+

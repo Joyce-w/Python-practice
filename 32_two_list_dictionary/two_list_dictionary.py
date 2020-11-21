@@ -15,3 +15,18 @@ def two_list_dictionary(keys, values):
         >>> two_list_dictionary(['a', 'b', 'c'], [1, 2, 3, 4])
         {'a': 1, 'b': 2, 'c': 3}
    """
+    key_len = len(keys)
+    val_len = len(values)
+
+    if key_len == val_len:
+        res = {keys[idx]: values[idx] for idx in range(0, key_len)}
+            
+    elif val_len < key_len:
+        res = {keys[i]: values[i] for i in range(0, val_len)}
+        for j in range(val_len, key_len):
+            res[keys[j]] = None
+
+    else:
+        res = {keys[i]: values[i] for i in range(0, key_len)}
+
+    return res
