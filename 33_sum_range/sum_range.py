@@ -31,7 +31,6 @@ def sum_range(nums, start=0, end=None):
             sum += nums[i]
         return sum
 
-
     end = end + 1
     for i in range(start, end):
         sum += nums[i]

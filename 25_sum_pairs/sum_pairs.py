@@ -22,12 +22,13 @@ def sum_pairs(nums, goal):
         ()
     """
 
-    for i in range(0, len(nums)-1):
-        cur = nums[i]
-        for j in range(cur, len(nums) - 1):
-            print(cur, nums[j])
-            # if cur + nums[j] == goal:
-            #     return((cur, nums[j]))
-    
+    for x in range(0,len(nums)):
+        diff = goal - nums[x]
+        if diff in nums[0:x]:
+            return (diff, goal-diff)
+
+
 
 print(sum_pairs([4, 2, 10, 5, 1], 6))
+print(sum_pairs([5, 1, 4, 8, 3, 2], 7))
+# print(sum_pairs([11, 20, 4, 2, 1, 5], 100))

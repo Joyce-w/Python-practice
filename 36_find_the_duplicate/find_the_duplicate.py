@@ -13,3 +13,9 @@ def find_the_duplicate(nums):
         >>> find_the_duplicate([2, 1, 3, 4]) is None
         True
     """
+    res = {num:nums.count(num) for num in nums}
+    
+    for (k, v) in res.items():
+        if v > 1:
+            return k
+

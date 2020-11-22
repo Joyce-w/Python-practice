@@ -31,28 +31,18 @@ def includes(collection, sought, start=None):
         True
     """
 
-    if start == None:
-        start = 0
-    if isinstance(collection, dict) is True:
-        start = 0
-        for idx in range(start, len(collection)):
-            if sought in collection.values():
-                return True
-            else:
-                return False
-    if isinstance(collection, set) is True:
-        start = 0
-        if sought in collection:
-            return True
-        else:
-            return False
-    else:
-        for idx in range(start, len(collection)):
-            if sought != collection[idx]:
-                return False
-            else:
-                return True
+    if (type(collection) == str) or (type(collection) == list) or (type(collection) == tuple):
+        if start == None:
+            start = 0
+        return sought in collection[start:len(collection)]
 
+    if type(collection) == set:
+        if start != None:
+            return ((sought in collection)*(start in collection)==1)
+        return sought in collection
 
-# print(includes({"apple": "red", "berry": "blue"}, "blue"))
-print(includes("hello", "o"))
+    if type(collection)== dict:
+        if start != None:
+            return (sought in collection.values())*(start in collection.values())==1
+        return sought in collection.values()
+

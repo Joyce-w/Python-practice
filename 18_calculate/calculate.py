@@ -1,4 +1,4 @@
-def calculate(operation, a, b, make_int=False, message='The result is'):
+def calculate(operation, a, b, make_int=False, message='The result is '):
     """Perform operation on a + b, ()possibly truncating) & returning w/msg.
 
     - operation: 'add', 'subtract', 'multiply', or 'divide'
@@ -26,19 +26,25 @@ def calculate(operation, a, b, make_int=False, message='The result is'):
         >>> calculate('foo', 2, 3)
         
     """
+    
+    if operation == "add":
+        res = a + b
 
-    def add(a, b):
-        return a + b
+    if operation == "subtract":
+        res = a - b
 
-    def subtract(a, b):
-        return a - b
-
-    def multiply(a, b):
-        return a * b
+    if operation == "multiply":
+        res = a * b
         
-    def division(a, b):
-        return a / b
+    if operation == "division":
+        res = a / b
 
-    return f"{message} "
+    else:
+        return 
+    
+    if make_int == True:
+        res = int(res)
+    
+    return f"{message}{res}"
 
 print(calculate('add', 2.5, 4))
